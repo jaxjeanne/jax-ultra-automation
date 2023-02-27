@@ -11,4 +11,12 @@ export default class Page {
         return browser.url(`https://mylearn.int.bbpd.io${route}`)
     }
 
+     /**
+    * Navigates to Admin page on Kubernetes test instance
+    * @param route path of the sub page (e.g. /path/to/page.html)
+    */
+     public openKubeInstance (route: string) {
+        return browser.url(`https://mylearn.int.bbpd.io${route}`)
+    }
+
 }

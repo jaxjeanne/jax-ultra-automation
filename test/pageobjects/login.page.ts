@@ -1,24 +1,34 @@
 import { ChainablePromiseElement } from 'webdriverio';
 
-import Page from './page';
+export default class LoginPage {
+    rootElement: ChainablePromiseElement<WebdriverIO.Element>;
+  
+    constructor(rootElement?: ChainablePromiseElement<WebdriverIO.Element>) {
+      this.rootElement = rootElement || $('body.login-page');
+    }
 
-/**
- * sub page containing specific selectors and methods for a specific page
- */
-class LoginPage extends Page {
-    /**
-     * define selectors using getter methods
-     */
+    public get privacyPolicyPopup() {
+        return this.rootElement.$('.privacyPolicyContainer').$('.consent-footer').$('button#agree_button');
+    }
+
     public get inputUsername () {
-        return $('#user_id');
+        return this.rootElement.$('#user_id');
     }
 
     public get inputPassword () {
-        return $('#password');
+        return this.rootElement.$('#password');
     }
 
     public get btnSubmit () {
-        return $('.button#entry-login');
+        return this.rootElement.$('.button#entry-login');
+    }
+
+    /**
+     * Dismiss Privacy Policy Popup
+     */
+    public async dismissPopup () {
+        await (await this.privacyPolicyPopup).click();
+        return this;
     }
 
     /**
@@ -36,11 +46,11 @@ class LoginPage extends Page {
      * will open your local Learn app to /login page
      */
     public openLocal () {
-        return super.openlocal('login');
+        // return .openlocal('login');
     }
 
     /**
-     * Opens the desired page on your local instance
+     * Opens the desired page on your Kubernetes instance
      * @param url path to feature branch test instance
      * @param route path of the sub page (e.g. /path/to/page.html)
      */
@@ -49,4 +59,3 @@ class LoginPage extends Page {
     }
 }
 
-export default new LoginPage();

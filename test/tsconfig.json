@@ -1,6 +1,7 @@
 {
     "compilerOptions": {
         "moduleResolution": "node",
+        "allowSyntheticDefaultImports": true,
         "types": [
             "node",
             "webdriverio/async",
