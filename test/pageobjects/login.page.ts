@@ -1,32 +1,32 @@
 import { ChainablePromiseElement } from 'webdriverio';
 
-export default class LoginPage {
+export class LoginPage {
     rootElement: ChainablePromiseElement<WebdriverIO.Element>;
   
     constructor(rootElement?: ChainablePromiseElement<WebdriverIO.Element>) {
       this.rootElement = rootElement || $('body.login-page');
     }
 
-    public get privacyPolicyPopup() {
+    get privacyPolicyPopup() {
         return this.rootElement.$('.privacyPolicyContainer').$('.consent-footer').$('button#agree_button');
     }
 
-    public get inputUsername () {
+    get inputUsername () {
         return this.rootElement.$('#user_id');
     }
 
-    public get inputPassword () {
+    get inputPassword () {
         return this.rootElement.$('#password');
     }
 
-    public get btnSubmit () {
+    get btnSubmit () {
         return this.rootElement.$('.button#entry-login');
     }
 
     /**
      * Dismiss Privacy Policy Popup
      */
-    public async dismissPopup () {
+   async dismissPopup () {
         await (await this.privacyPolicyPopup).click();
         return this;
     }
@@ -36,7 +36,7 @@ export default class LoginPage {
      * @param username for username
      * @param password for password
      */
-    public async login (username: string, password: string) {
+    async login (username: string, password: string) {
         await this.inputUsername.setValue(username);
         await this.inputPassword.setValue(password);
         await this.btnSubmit.click();
@@ -45,7 +45,7 @@ export default class LoginPage {
     /**
      * will open your local Learn app to /login page
      */
-    public openLocal () {
+    async openLocal () {
         // return .openlocal('login');
     }
 
@@ -54,7 +54,7 @@ export default class LoginPage {
      * @param url path to feature branch test instance
      * @param route path of the sub page (e.g. /path/to/page.html)
      */
-    public openTestInstance (url: string, route: string) {
+    async openTestInstance (url: string, route: string) {
         return browser.url(`${url}${route}`)
     }
 }
