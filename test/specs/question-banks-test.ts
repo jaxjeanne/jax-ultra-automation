@@ -1,5 +1,5 @@
 import { LoginPage } from  '../pageobjects/login.page';
-import QuestionBankManage from "../pageobjects/question-bank-manage";
+import QuestionBankManage from "../pageobjects/question-banks/question-bank-manage";
 
 describe('Instructor Question Banks', () => {
     it('can edit question in bank', async () => {
