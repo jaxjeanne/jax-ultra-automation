@@ -2,7 +2,7 @@ const LoginPage = require('../pageobjects/login.page') ;
 const AdminPage = require ('../pageobjects/admin.page')
 
 
-fdescribe('Setup K8 test instance with the following', () => {
+describe('Setup K8 test instance with the following', () => {
     it('Enable Ultra UI', async () => {
         const testInstance = 'https://learnci-feature-lrn-195187-uia-ia68adf98.dev.bbpd.io/';
         const route = 'ultra/admin';

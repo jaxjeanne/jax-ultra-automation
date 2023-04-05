@@ -1,12 +1,9 @@
 import { ChainablePromiseElement } from 'webdriverio';
 import Page from "./page";
 
-class LoginPage extends Page {
-    rootElement: ChainablePromiseElement<WebdriverIO.Element>;
-
+export class LoginPage extends Page {
     constructor(rootElement?: ChainablePromiseElement<WebdriverIO.Element>) {
-        super();
-      this.rootElement = rootElement || $('body.login-page');
+        super(rootElement || $('.bb-login'));
     }
 
     get privacyPolicyPopup() {

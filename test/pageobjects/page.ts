@@ -2,7 +2,15 @@
 * main page object containing all methods, selectors and functionality
 * that is shared across all page objects
 */
+import {ChainablePromiseElement} from "webdriverio";
+
 export default class Page {
+    rootElement: ChainablePromiseElement<WebdriverIO.Element>;
+
+    constructor(rootElement: ChainablePromiseElement<WebdriverIO.Element>) {
+        this.rootElement = rootElement;
+    }
+
     /**
     * Opens the desired page on your local instance
     * @param route path of the sub page (e.g. /path/to/page.html)
