@@ -1,14 +1,9 @@
-import { ChainablePromiseElement } from 'webdriverio';
-
-import Page from '../page';
-
 /**
  * sub page containing specific selectors and methods for a specific page
  */
-class QuestionBankEdit extends Page {
-    constructor(rootElement?: ChainablePromiseElement<WebdriverIO.Element>) {
-        super(rootElement || $('.question-bank-edit'));
-    }
+import Page from "../page";
+
+export class QuestionBankEdit extends Page {
 
     get moreOptionsButton () {
         return $('.question-bank-edit-list').$('.question-controls__actions').$('button.ms-Button');

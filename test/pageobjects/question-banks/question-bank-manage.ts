@@ -1,20 +1,16 @@
 import Page from '../page';
-import {ChainablePromiseElement} from "webdriverio";
 
 /**
  * sub page containing specific selectors and methods for a specific page
  */
 export class QuestionBankManage extends Page {
-    constructor(rootElement?: ChainablePromiseElement<WebdriverIO.Element>) {
-        super(rootElement || $('.question-banks-panel'));
-    }
 
     get addNewButton() {
-        return this.rootElement.$('button.create-new-bar');
+        return $('button.create-new-bar');
     }
 
     get addNewMenu() {
-        return this.rootElement.$('aria/Add question bank menu')
+        return $('aria/Add question bank menu')
     }
 
     get addNewOption() {
@@ -27,4 +23,4 @@ export class QuestionBankManage extends Page {
         return this;
     }
 }
-export default new QuestionBankManage()
+export default new QuestionBankManage();

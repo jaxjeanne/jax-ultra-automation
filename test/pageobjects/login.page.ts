@@ -1,25 +1,21 @@
-import { ChainablePromiseElement } from 'webdriverio';
 import Page from "./page";
 
 export class LoginPage extends Page {
-    constructor(rootElement?: ChainablePromiseElement<WebdriverIO.Element>) {
-        super(rootElement || $('.bb-login'));
-    }
 
     get privacyPolicyPopup() {
-        return this.rootElement.$('.privacyPolicyContainer').$('.consent-footer').$('button#agree_button');
+        return $('.privacyPolicyContainer').$('.consent-footer').$('button#agree_button');
     }
 
     get inputUsername () {
-        return this.rootElement.$('#user_id');
+        return $('#user_id');
     }
 
     get inputPassword () {
-        return this.rootElement.$('#password');
+        return $('#password');
     }
 
     get btnSubmit () {
-        return this.rootElement.$('.button#entry-login');
+        return $('.button#entry-login');
     }
 
     /**

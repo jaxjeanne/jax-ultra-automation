@@ -4,8 +4,8 @@ import QuestionBankManage from "../pageobjects/question-banks/question-bank-mana
 
 describe('Instructor Question Banks', () => {
     it('can create new Bank', async() => {
-        const testInstance = 'https://ultra-next.bbpd.io';
-        const route = 'courses/_21_1/outline/banks'; //directly to Question Banks Manage panel
+        const testInstance = 'https://jaxtest.blackboard.com/ultra/';
+        const route = 'courses/_3_1/outline/banks'; //directly to Question Banks Manage panel
         await LoginPage.openTestInstance(testInstance, route);
         await LoginPage.login('jaxinstr1', 'test');
         await QuestionBankManage.addNewBank();
@@ -24,8 +24,8 @@ describe('Instructor Question Banks', () => {
     })
 
     it('can edit question in bank', async () => {
-        const testInstance = 'https://ultra-next.bbpd.io';
-        const route = 'courses/_21_1/outline/banks/editBank/_1104_1'; //directly to Question Banks Edit panel
+        const testInstance = 'https://jaxtest.blackboard.com/ultra/';
+        const route = 'courses/_3_1/outline/banks/editBank/_1047_1'; //directly to Question Banks Edit panel
         await LoginPage.openTestInstance(testInstance, route);
         await LoginPage.login('jaxinstr1', 'test');
         await QuestionBankEdit.enterEditMode();
