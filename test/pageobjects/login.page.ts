@@ -1,9 +1,11 @@
 import { ChainablePromiseElement } from 'webdriverio';
+import Page from "./page";
 
-export class LoginPage {
+class LoginPage extends Page {
     rootElement: ChainablePromiseElement<WebdriverIO.Element>;
-  
+
     constructor(rootElement?: ChainablePromiseElement<WebdriverIO.Element>) {
+        super();
       this.rootElement = rootElement || $('body.login-page');
     }
 
@@ -58,4 +60,5 @@ export class LoginPage {
         return browser.url(`${url}${route}`)
     }
 }
+export default new LoginPage();
 

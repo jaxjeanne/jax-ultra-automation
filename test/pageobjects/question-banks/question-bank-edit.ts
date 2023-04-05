@@ -5,7 +5,7 @@ import Page from '../page';
 /**
  * sub page containing specific selectors and methods for a specific page
  */
-class QuestionBankManage extends Page {
+class QuestionBankEdit extends Page {
     rootElement: ChainablePromiseElement<WebdriverIO.Element>;
 
     public get moreOptionsButton () {
@@ -42,4 +42,4 @@ class QuestionBankManage extends Page {
     }
 }
 
-export default new QuestionBankManage();
+export default new QuestionBankEdit();
